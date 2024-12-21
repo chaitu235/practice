@@ -14,3 +14,7 @@ To confirm  the remote ==>git remote -v
 To check the branch ==>git branch
 
 
+After making changes in local repository then again if i want to push this changes into my GitHub ==>
+	git add .
+	git commit -m "Your commit message here"
+	git push -u origin master/main
