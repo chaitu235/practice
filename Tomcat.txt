@@ -1,0 +1,79 @@
+Docker file for shell script
+
+# Use a lightweight base image
+FROM alpine:latest
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy the shell script into the container
+COPY script.sh .
+
+# Ensure the script has Unix line endings (if on Windows) and make it executable
+RUN dos2unix script.sh && chmod +x script.sh
+
+# Verify the file is copied and permissions set correctly (for debugging)
+RUN ls -l /usr/src/app
+
+# Run the shell script with sh
+CMD ["/bin/sh", "./script.sh"]
+
+
+
+--------------------------------------------------------------------------------------------------------
+
+Docker file for java
+
+FROM openjdk:11
+
+WORKDIR /app
+
+COPY . /app
+
+RUN javac Test.java
+
+CMD ["java", "Test"]
+
+--------------------------------------------------------------------------------------------------------------------------
+
+Docker file for html
+# Step 1: Use the official Nginx image as the base image
+FROM nginx:alpine
+
+# Step 2: Copy the HTML file into the appropriate directory in the container
+COPY index.html /usr/share/nginx/html/index.html
+
+# Step 3: Expose port 80 to allow access to the web server
+EXPOSE 80
+
+# Nginx runs automatically when the container starts, no need to specify a CMD
+
+------------------------------------------------------------------------------------------
+//Commands to run docker file using docker
+
+docker build -t my-html-app .
+docker run -d -p 8080:80 my-html-app
+---------------------------------------------------------------------------------------------
+
+//Use case for html 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My HTML App</title>
+</head>
+<body>
+    <h1>Hello, Docker and HTML!</h1>
+    <p>This is a simple static website served using Nginx in a Docker container.</p>
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------
+Git /////
+git init 
+git add .
+git commit -m "first commit"
+badme git repo me jake wo tin file ek ke bad ek paste karne 
+--------------------------------------------------------------------------------------------------
