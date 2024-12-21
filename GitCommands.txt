@@ -1,0 +1,16 @@
+1==>git init
+
+2==>git commit -m "first commit"
+
+3==>git remote add origin https://github.com/chaitu235/practice.git
+
+4==>if error occurs then set origin ==>git remote set-url origin https://github.com/chaitu235/practice.git
+
+5==>git push -u origin main
+
+
+To confirm  the remote ==>git remote -v
+
+To check the branch ==>git branch
+
+
